@@ -31,36 +31,35 @@ O sistema compara:
 # Estrutura do Projeto
 
 prompt-toolkit/
-
+│
 ├── README.md
 ├── requirements.txt
 ├── .env.example
 ├── main.py
-
+│
 ├── src/
-│   ├── **init**.py
+│   ├── __init__.py
 │   ├── llm_client.py
 │   ├── prompt_builder.py
 │   ├── techniques.py
 │   ├── tasks.py
 │   ├── evaluator.py
 │   └── report.py
-
+│
 ├── data/
 │   ├── inputs.json
 │   └── examples.json
-
+│
 ├── prompts/
 │   ├── system_prompts.json
 │   └── templates.json
-
+│
 ├── output/
 │   ├── resultados.csv
 │   └── graficos/
-
+│
 └── docs/
-└── CP02_Grupo.pdf
-
+    └── CP02_Grupo.pdf
 ---
 
 # Tecnologias Utilizadas

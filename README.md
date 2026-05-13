@@ -1,14 +1,15 @@
 # cp3_promptToolkit_1
+
 # Prompt Toolkit — Veículos Elétricos
 
 Toolkit de Prompt Engineering desenvolvido em Python para comparar técnicas de prompting utilizando modelos LLM locais via Ollama.
 
 O projeto implementa e compara:
 
-- Zero-Shot Prompting
-- Few-Shot Prompting
-- Chain-of-Thought (CoT)
-- Role Prompting
+* Zero-Shot Prompting
+* Few-Shot Prompting
+* Chain-of-Thought (CoT)
+* Role Prompting
 
 O domínio escolhido foi análise de feedbacks e suporte para infraestrutura de recarga de veículos elétricos.
 
@@ -20,117 +21,143 @@ O objetivo do toolkit é identificar qual técnica de prompting apresenta melhor
 
 O sistema compara:
 
-- acurácia
-- consistência
-- tempo de resposta
-- quantidade de tokens utilizados
+* acurácia
+* consistência
+* tempo de resposta
+* quantidade de tokens utilizados
 
 ---
 
 # Estrutura do Projeto
 
-```text
 prompt-toolkit/
-│
+
 ├── README.md
 ├── requirements.txt
 ├── .env.example
 ├── main.py
-│
+
 ├── src/
-│   ├── __init__.py
+│   ├── **init**.py
 │   ├── llm_client.py
 │   ├── prompt_builder.py
 │   ├── techniques.py
 │   ├── tasks.py
 │   ├── evaluator.py
 │   └── report.py
-│
+
 ├── data/
 │   ├── inputs.json
 │   └── examples.json
-│
-├── prompts
+
+├── prompts/
 │   ├── system_prompts.json
 │   └── templates.json
-│
+
 ├── output/
 │   ├── resultados.csv
 │   └── graficos/
-│
+
 └── docs/
-    └── CP02_Grupo.pdf/
+└── CP02_Grupo.pdf
+
 ---
-## Tecnologias Utilizadas
-Python 3.10+
-Ollama
-gpt-oss:120b
-pandas
-matplotlib
-tiktoken
-requests
---
-## Técnicas Implementadas
-* Zero-Shot
+
+# Tecnologias Utilizadas
+
+* Python 3.10+
+* Ollama
+* gpt-oss:120b
+* pandas
+* matplotlib
+* tiktoken
+* requests
+
+---
+
+# Técnicas Implementadas
+
+## Zero-Shot
 
 Executa a tarefa sem exemplos prévios.
 
-* Few-Shot
+## Few-Shot
 
 Executa a tarefa utilizando exemplos no prompt.
 
-* Chain-of-Thought (CoT)
+## Chain-of-Thought (CoT)
 
 Utiliza raciocínio passo a passo para resolver tarefas mais complexas.
 
-* Role Prompting
+## Role Prompting
 
 Utiliza personas específicas para especializar o comportamento do modelo.
 
-##  Tarefas Implementadas
-* Classificação de Sentimento
+---
+
+# Tarefas Implementadas
+
+## Classificação de Sentimento
 
 Classifica feedbacks como:
 
-POSITIVO
-NEGATIVO
-NEUTRO
-MISTO
+* POSITIVO
+* NEGATIVO
+* NEUTRO
+* MISTO
 
-* Extração de Problemas
+## Extração de Problemas
 
 Extrai:
 
-local
-problema
-modelo do veículo
-tempo de espera
-Sumarização
+* local
+* problema
+* modelo do veículo
+* tempo de espera
 
-* Cria resumos executivos de feedbacks dos usuários.
+## Sumarização
+
+Cria resumos executivos de feedbacks dos usuários.
+
 ---
-## Como Instalar
-1. Clone o projeto
+
+# Como Instalar
+
+## 1. Clone o projeto
+
 git clone https://github.com/seu-repositorio/prompt-toolkit.git
-2. Instale as dependências
+
+---
+
+## 2. Instale as dependências
+
 pip install -r requirements.txt
-Como Instalar o Ollama
+
+---
+
+# Como Instalar o Ollama
 
 Baixe e instale:
 
 https://ollama.com/
 
-## Como Baixar o Modelo
+---
+
+# Como Baixar o Modelo
+
 ollama run gpt-oss:120b
-Como Executar
+
+---
+
+# Como Executar
 
 Com o Ollama rodando:
 
 python main.py
----
-## Funcionamento do Sistema
 
-O fluxo do sistema é:
+---
+
+# Funcionamento do Sistema
 
 inputs.json
 ↓
@@ -145,31 +172,40 @@ evaluator.py
 report.py
 ↓
 output/
+
 ---
-## Métricas Avaliadas
+
+# Métricas Avaliadas
 
 O sistema mede:
 
-acurácia
-tokens utilizados
-tempo de resposta
-consistência entre respostas
+* acurácia
+* tokens utilizados
+* tempo de resposta
+* consistência entre respostas
 
-## Resultados Gerados
+---
+
+# Resultados Gerados
 
 Após a execução, o sistema gera:
 
-* CSV
+## CSV
+
 output/resultados.csv
-Gráficos
+
+## Gráficos
+
 output/graficos/
 
 Exemplos:
 
-acuracia.png
-custo.png
+* acuracia.png
+* custo.png
 
-- Exemplo de Uso
+---
+
+# Exemplo de Uso
 
 Entrada:
 
@@ -178,26 +214,31 @@ Entrada:
 Saída esperada:
 
 NEGATIVO
----
-## Bibliotecas Utilizadas
 
-* pandas
+---
+
+# Bibliotecas Utilizadas
+
+## pandas
 
 Geração de tabelas e CSV.
 
-* matplotlib
+## matplotlib
 
 Criação de gráficos comparativos.
 
-* tiktoken
+## tiktoken
 
 Contagem de tokens.
 
-* equests
+## requests
 
 Comunicação com API local do Ollama.
+
 ---
-##Guia Rápido — Quando usar cada técnica
+
+# Guia Rápido — Quando usar cada técnica
+
 | Técnica        | Melhor Uso               |
 | -------------- | ------------------------ |
 | Zero-Shot      | tarefas simples          |
@@ -205,27 +246,26 @@ Comunicação com API local do Ollama.
 | CoT            | raciocínio complexo      |
 | Role Prompting | respostas especializadas |
 
-## Resultados Esperados
+---
+
+# Resultados Esperados
+
 O projeto permite analisar:
 
-qual técnica possui maior precisão
-qual técnica consome menos tokens
-qual técnica é mais rápida
-qual técnica funciona melhor para cada tipo de tarefa
+* qual técnica possui maior precisão
+* qual técnica consome menos tokens
+* qual técnica é mais rápida
+* qual técnica funciona melhor para cada tipo de tarefa
 
-## Integrantes
-Nome 1 — RM
-Nome 2 — RM
-Nome 3 — RM
-│   ├── system_prompts.json
-│   └── templates.json
-│
-├── output/
-│   ├── resultados.csv
-│   └── graficos/
-│
-└── docs/
-    └── CP02_Grupo.pdf
+---
+
+# Integrantes
+
+* Nome 1 — RM
+* Nome 2 — RM
+* Nome 3 — RM
+
+---
 
 # Licença
 
